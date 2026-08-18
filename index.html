@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sama Elsheikh | Data Science & Machine Learning Portfolio</title>
+    <meta name="description" content="Sama Elsheikh - Computer Science Student at Damanhour University specializing in Data Science and Machine Learning.">
+    <meta name="author" content="Sama Elsheikh">
+    <meta name="theme-color" content="#050811">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts: Inter & JetBrains Mono -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- AOS (Animate On Scroll) CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        ai: {
+                            dark: '#050811',
+                            card: '#0d1322',
+                            cardHover: '#131b2e',
+                            border: '#1e293b',
+                            cyan: '#06b6d4',
+                            purple: '#8b5cf6',
+                            emerald: '#10b981',
+                            accent: '#6366f1',
+                            amber: '#f59e0b',
+                            rose: '#f43f5e'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        code: ['JetBrains Mono', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #050811;
+            color: #f1f5f9;
+        }
+        .bg-grid-pattern {
+            background-size: 32px 32px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #050811;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #06b6d4;
+        }
+    </style>
+</head>
+<body class="bg-ai-dark text-slate-100 font-sans bg-grid-pattern antialiased selection:bg-ai-cyan selection:text-black relative">
+
+    <!-- Interactive Neural Backdrop Canvas covering entire portfolio -->
+    <canvas id="synapseCanvas" class="fixed inset-0 w-full h-full pointer-events-none opacity-30 z-0"></canvas>
+
+    <header class="fixed top-0 w-full z-50 backdrop-blur-xl bg-ai-dark/80 border-b border-ai-border/80">
+        <!-- Scroll Progress Bar -->
+        <div id="scroll-progress" class="h-1 bg-gradient-to-r from-ai-cyan via-ai-purple to-ai-emerald w-0 transition-all duration-75"></div>
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#home" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-ai-cyan via-ai-accent to-ai-purple flex items-center justify-center text-white font-code font-bold text-lg group-hover:rotate-12 transition-transform shadow-lg shadow-ai-cyan/20">
+                    SE
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-black font-code tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-ai-cyan via-ai-accent to-ai-purple text-lg">
+                        SAMA_ELSHEIKH
+                    </span>
+                    <span class="text-[10px] font-code text-slate-400">Data Science &amp; ML Portfolio</span>
+                </div>
+            </a>
+            
+            <!-- Navigation Links -->
+            <nav class="hidden lg:flex items-center gap-7 text-xs font-semibold text-slate-300 uppercase tracking-wider">
+                <a href="#about" class="hover:text-ai-cyan transition-colors flex items-center gap-1.5"><i class="fa-solid fa-user text-ai-cyan"></i> About</a>
+                <a href="#skills" class="hover:text-ai-cyan transition-colors flex items-center gap-1.5"><i class="fa-solid fa-microchip text-ai-purple"></i> Skills</a>
+                <a href="#projects" class="hover:text-ai-cyan transition-colors flex items-center gap-1.5"><i class="fa-solid fa-diagram-project text-ai-amber"></i> Projects</a>
+                <a href="#education" class="hover:text-ai-cyan transition-colors flex items-center gap-1.5"><i class="fa-solid fa-graduation-cap text-ai-rose"></i> Experience</a>
+                <a href="#certificates" class="hover:text-ai-cyan transition-colors flex items-center gap-1.5"><i class="fa-solid fa-certificate text-ai-cyan"></i> Certificates</a>
+                <a href="#contact" class="hover:text-ai-cyan transition-colors flex items-center gap-1.5"><i class="fa-solid fa-paper-plane text-ai-purple"></i> Contact</a>
+            </nav>
+
+            <!-- Actions -->
+            <div class="flex items-center gap-3">
+                <a href="https://github.com/samaelsheikh23" target="_blank" rel="noopener noreferrer" class="hidden sm:flex p-2.5 rounded-xl bg-slate-900 border border-ai-border hover:text-ai-cyan transition-colors text-sm">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/sama-elsheikh-02b75233a" target="_blank" rel="noopener noreferrer" class="hidden sm:flex p-2.5 rounded-xl bg-slate-900 border border-ai-border hover:text-ai-cyan transition-colors text-sm">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <a href="#contact" class="bg-gradient-to-r from-ai-cyan to-ai-accent text-slate-950 font-bold text-xs px-4 py-2.5 rounded-xl hover:shadow-lg hover:shadow-ai-cyan/30 hover:scale-105 transition-all flex items-center gap-2">
+                    <span>Let's Connect</span>
+                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section id="home" class="min-h-screen flex items-center justify-center pt-28 pb-16 px-6 relative overflow-hidden">
+        <!-- Glowing Background Blur Orbs -->
+        <div class="absolute top-1/4 left-10 w-96 h-96 bg-ai-cyan/15 rounded-full blur-[140px] pointer-events-none"></div>
+        <div class="absolute bottom-1/4 right-10 w-96 h-96 bg-ai-purple/15 rounded-full blur-[140px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center z-10">
+            <!-- Text Content -->
+            <div class="lg:col-span-7 space-y-6 text-left" data-aos="fade-right" data-aos-duration="1000">
+                <div class="inline-flex items-center gap-2.5 bg-slate-900/90 border border-ai-cyan/30 px-4 py-2 rounded-full text-ai-cyan text-xs font-code">
+                    <span class="w-2.5 h-2.5 rounded-full bg-ai-emerald animate-pulse"></span>
+                    <span>CS STUDENT &amp; DATA SCIENCE / ML ENTHUSIAST</span>
+                </div>
+                
+                <h1 class="text-4xl sm:text-6xl font-black leading-tight tracking-tight">
+                    Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-ai-cyan via-ai-purple to-ai-emerald">Sama Elsheikh</span>
+                </h1>
+
+                <p class="text-slate-400 text-lg sm:text-xl leading-relaxed max-w-2xl">
+                    Computer Science Student at Damanhour University passionate about exploring data patterns, building predictive Machine Learning models, and crafting intelligent data-driven applications.
+                </p>
+
+                <!-- Action Buttons -->
+                <div class="flex flex-wrap gap-4 pt-4">
+                    <a href="#projects" class="bg-gradient-to-r from-ai-cyan to-ai-accent text-slate-950 font-extrabold px-7 py-3.5 rounded-xl hover:scale-105 transition-all shadow-lg shadow-ai-cyan/20 flex items-center gap-2">
+                        <i class="fa-solid fa-rocket"></i> View My Projects
+                    </a>
+                    <a href="#contact" class="bg-ai-card hover:bg-slate-800 border border-ai-border text-slate-200 font-bold px-7 py-3.5 rounded-xl transition-all flex items-center gap-2">
+                        <i class="fa-solid fa-paper-plane text-ai-purple"></i> Get In Touch
+                    </a>
+                </div>
+
+                <!-- Quick Tech Badges -->
+                <div class="pt-6 border-t border-ai-border/60 flex flex-wrap items-center gap-3">
+                    <span class="text-xs font-code text-slate-500">PRIMARY STACK:</span>
+                    <span class="bg-slate-900 border border-slate-800 text-slate-300 font-code text-xs px-3 py-1.5 rounded-lg flex items-center gap-1.5"><i class="fa-brands fa-python text-amber-400"></i> Python</span>
+                    <span class="bg-slate-900 border border-slate-800 text-slate-300 font-code text-xs px-3 py-1.5 rounded-lg flex items-center gap-1.5"><i class="fa-solid fa-brain text-ai-cyan"></i> Scikit-Learn</span>
+                    <span class="bg-slate-900 border border-slate-800 text-slate-300 font-code text-xs px-3 py-1.5 rounded-lg flex items-center gap-1.5"><i class="fa-solid fa-table text-ai-emerald"></i> Pandas</span>
+                    <span class="bg-slate-900 border border-slate-800 text-slate-300 font-code text-xs px-3 py-1.5 rounded-lg flex items-center gap-1.5"><i class="fa-solid fa-laptop-code text-ai-purple"></i> Streamlit</span>
+                </div>
+            </div>
+
+            <!-- Profile Picture with Cyber Frame -->
+            <div class="lg:col-span-5 flex justify-center items-center" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-ai-cyan via-ai-purple to-ai-emerald rounded-3xl blur-xl opacity-50 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
+                    
+                    <div class="relative bg-ai-card border border-ai-border rounded-3xl p-3 shadow-2xl overflow-hidden max-w-sm">
+                        <img src="assets/sama.png" alt="Sama Elsheikh Profile Picture" class="w-full h-auto object-cover rounded-2xl border border-slate-800/80 transform group-hover:scale-[1.02] transition-transform duration-500" onerror="this.onerror=null; this.src='https://placehold.co/500x650/0d1322/06b6d4?text=Sama+Elsheikh';">
+                        
+                        <div class="absolute bottom-6 left-6 right-6 bg-slate-950/80 backdrop-blur-md border border-ai-border/80 p-3.5 rounded-2xl flex items-center justify-between">
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Sama Elsheikh</h4>
+                                <p class="text-[11px] font-code text-ai-cyan">Data Science &amp; ML</p>
+                            </div>
+                            <span class="w-3 h-3 rounded-full bg-ai-emerald animate-ping"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Metrics Section -->
+    <section class="border-y border-ai-border bg-slate-950/70 py-10 relative">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div class="text-center p-4 border-r last:border-r-0 border-ai-border/50" data-aos="fade-up" data-aos-delay="100">
+                <div class="text-3xl sm:text-5xl font-black font-code text-transparent bg-clip-text bg-gradient-to-r from-ai-cyan to-blue-500 mb-2">2028</div>
+                <div class="text-slate-400 text-xs sm:text-sm font-semibold">Expected B.Sc. Graduation</div>
+            </div>
+            <div class="text-center p-4 border-r last:border-r-0 border-ai-border/50" data-aos="fade-up" data-aos-delay="200">
+                <div class="text-3xl sm:text-5xl font-black font-code text-transparent bg-clip-text bg-gradient-to-r from-ai-purple to-pink-500 mb-2">15+</div>
+                <div class="text-slate-400 text-xs sm:text-sm font-semibold">Verified Credentials</div>
+            </div>
+            <div class="text-center p-4 border-r last:border-r-0 border-ai-border/50" data-aos="fade-up" data-aos-delay="300">
+                <div class="text-3xl sm:text-5xl font-black font-code text-transparent bg-clip-text bg-gradient-to-r from-ai-emerald to-teal-400 mb-2">3+</div>
+                <div class="text-slate-400 text-xs sm:text-sm font-semibold">Intensive Trainings (ITI &amp; NTI)</div>
+            </div>
+            <div class="text-center p-4" data-aos="fade-up" data-aos-delay="400">
+                <div class="text-3xl sm:text-5xl font-black font-code text-transparent bg-clip-text bg-gradient-to-r from-ai-amber to-orange-500 mb-2">GDG</div>
+                <div class="text-slate-400 text-xs sm:text-sm font-semibold">IT Member @ Backend Team</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            <!-- Left Main Column (Bio & Highlights) -->
+            <div class="lg:col-span-7 space-y-6" data-aos="fade-right">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-ai-cyan/10 border border-ai-cyan/30 text-ai-cyan text-xs font-code">
+                    <i class="fa-solid fa-user-astronaut"></i> ABOUT SAMA ELSHEIKH
+                </div>
+                
+                <h2 class="text-3xl sm:text-5xl font-black leading-tight">
+                    Transforming Raw Data into <span class="text-transparent bg-clip-text bg-gradient-to-r from-ai-cyan via-ai-purple to-ai-emerald">Intelligent Insights</span>
+                </h2>
+                
+                <div class="space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed">
+                    <p>
+                        I'm a Computer Science student at <strong>Damanhour University</strong> (Faculty of Computers and Information Sciences) with a deep passion for <strong>Data Science, Machine Learning, and Artificial Intelligence</strong>. I thrive at the intersection of data analysis, mathematical thinking, and practical software engineering.
+                    </p>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        My expertise spans the complete data science lifecycle: from in-depth Exploratory Data Analysis (EDA) and robust feature preprocessing to building, tuning, and evaluating predictive machine learning models. I enjoy bringing AI models to life through clean, intuitive interactive web applications using Streamlit and Python.
+                    </p>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Beyond data science, I maintain strong software engineering foundations in <strong>Object-Oriented Programming (OOP)</strong> with Java and C++, competitive algorithmic problem solving, and collaborative community work as an <strong>IT Member in Google Developer Groups (GDG)</strong> and a certified trainer (TOT).
+                    </p>
+                </div>
+
+                <!-- 4 Core Competency Cards Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 font-code text-xs pt-2">
+                    <div class="bg-slate-950/80 p-4 rounded-xl border border-ai-border/80 hover:border-ai-cyan/50 transition-colors flex items-center gap-3.5 group">
+                        <div class="w-10 h-10 rounded-lg bg-ai-cyan/10 border border-ai-cyan/20 flex items-center justify-center text-ai-cyan text-xl group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+                        <div>
+                            <span class="text-slate-500 block text-[10px]">ANALYTICS</span>
+                            <span class="text-slate-200 font-bold">EDA &amp; Preprocessing</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-950/80 p-4 rounded-xl border border-ai-border/80 hover:border-ai-purple/50 transition-colors flex items-center gap-3.5 group">
+                        <div class="w-10 h-10 rounded-lg bg-ai-purple/10 border border-ai-purple/20 flex items-center justify-center text-ai-purple text-xl group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
+                        <div>
+                            <span class="text-slate-500 block text-[10px]">INTELLIGENCE</span>
+                            <span class="text-slate-200 font-bold">ML Predictive Modeling</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-950/80 p-4 rounded-xl border border-ai-border/80 hover:border-ai-emerald/50 transition-colors flex items-center gap-3.5 group">
+                        <div class="w-10 h-10 rounded-lg bg-ai-emerald/10 border border-ai-emerald/20 flex items-center justify-center text-ai-emerald text-xl group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+                        <div>
+                            <span class="text-slate-500 block text-[10px]">DEPLOYMENT</span>
+                            <span class="text-slate-200 font-bold">Streamlit &amp; Python Apps</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-950/80 p-4 rounded-xl border border-ai-border/80 hover:border-ai-amber/50 transition-colors flex items-center gap-3.5 group">
+                        <div class="w-10 h-10 rounded-lg bg-ai-amber/10 border border-ai-amber/20 flex items-center justify-center text-ai-amber text-xl group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-code"></i>
+                        </div>
+                        <div>
+                            <span class="text-slate-500 block text-[10px]">FOUNDATIONS</span>
+                            <span class="text-slate-200 font-bold">OOP &amp; Problem Solving</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column (Details, Pillars, Quick Facts) -->
+            <div class="lg:col-span-5 space-y-6" data-aos="fade-left">
+                <!-- Core Pillars Card -->
+                <div class="bg-ai-card border border-ai-border p-6 rounded-2xl space-y-4 shadow-xl">
+                    <h3 class="text-lg font-bold border-b border-slate-800 pb-3 flex items-center gap-2">
+                        <i class="fa-solid fa-bullseye text-ai-cyan"></i> Core Focus Areas
+                    </h3>
+                    <ul class="space-y-3 font-code text-xs text-slate-300">
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-circle-check text-ai-emerald mt-0.5"></i>
+                            <div>
+                                <strong class="text-white">Predictive Modeling &amp; ML:</strong>
+                                <span class="text-slate-400 block text-[11px]">Classification, regression, clustering with Scikit-learn.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-circle-check text-ai-emerald mt-0.5"></i>
+                            <div>
+                                <strong class="text-white">Data Cleaning &amp; Feature Engineering:</strong>
+                                <span class="text-slate-400 block text-[11px]">Transforming messy data into clean, modeling-ready datasets.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-circle-check text-ai-emerald mt-0.5"></i>
+                            <div>
+                                <strong class="text-white">Object-Oriented Software (Java):</strong>
+                                <span class="text-slate-400 block text-[11px]">Building modular desktop GUI applications (JavaFX &amp; SQLite).</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-circle-check text-ai-emerald mt-0.5"></i>
+                            <div>
+                                <strong class="text-white">Competitive Programming:</strong>
+                                <span class="text-slate-400 block text-[11px]">Algorithmic thinking, data structures &amp; problem solving in C++ &amp; Python.</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Quick Overview Meta Card -->
+                <div class="bg-slate-950 border border-ai-border p-5 rounded-2xl space-y-3 font-code text-xs">
+                    <h4 class="text-slate-300 font-bold flex items-center gap-2 text-xs border-b border-slate-800 pb-2">
+                        <i class="fa-solid fa-id-badge text-ai-purple"></i> Quick Info &amp; Status
+                    </h4>
+                    <div class="grid grid-cols-2 gap-3 text-[11px]">
+                        <div>
+                            <span class="text-slate-500 block">EDUCATION</span>
+                            <span class="text-slate-200">Damanhour Univ. (2028)</span>
+                        </div>
+                        <div>
+                            <span class="text-slate-500 block">LOCATION</span>
+                            <span class="text-slate-200">Egypt</span>
+                        </div>
+                        <div>
+                            <span class="text-slate-500 block">COMMUNITY</span>
+                            <span class="text-slate-200">GDG IT Member</span>
+                        </div>
+                        <div>
+                            <span class="text-slate-500 block">AVAILABILITY</span>
+                            <span class="text-ai-emerald flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-ai-emerald animate-pulse"></span> Open to Internships</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-16 space-y-4" data-aos="fade-up">
+            <div class="inline-block px-3 py-1 rounded-full bg-ai-purple/10 border border-ai-purple/30 text-ai-purple text-xs font-code">
+                TECHNICAL CAPABILITIES
+            </div>
+            <h2 class="text-3xl sm:text-5xl font-black">Skills &amp; Technologies</h2>
+            <p class="text-slate-400 max-w-2xl mx-auto">Languages, libraries, algorithms, and developer tools leveraged across projects.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Programming -->
+            <div class="bg-ai-card border border-ai-border rounded-2xl p-6 hover:border-ai-cyan/50 transition-all group" data-aos="fade-up" data-aos-delay="100">
+                <div class="w-12 h-12 bg-ai-cyan/10 rounded-xl flex items-center justify-center text-ai-cyan text-xl mb-4 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-code"></i>
+                </div>
+                <h3 class="text-lg font-bold mb-4">Programming</h3>
+                <div class="flex flex-wrap gap-2 font-code text-xs">
+                    <span class="bg-slate-950 border border-slate-800 text-slate-300 px-2.5 py-1.5 rounded-lg"><i class="fa-brands fa-python text-amber-400 mr-1"></i> Python</span>
+                    <span class="bg-slate-950 border border-slate-800 text-slate-300 px-2.5 py-1.5 rounded-lg">C++</span>
+                    <span class="bg-slate-950 border border-slate-800 text-slate-300 px-2.5 py-1.5 rounded-lg"><i class="fa-brands fa-java text-orange-500 mr-1"></i> Java</span>
+                    <span class="bg-slate-950 border border-slate-800 text-slate-300 px-2.5 py-1.5 rounded-lg">Dart</span>
+                    <span class="bg-slate-950 border border-slate-800 text-slate-300 px-2.5 py-1.5 rounded-lg"><i class="fa-solid fa-database text-blue-400 mr-1"></i> SQL</span>
+                    <span class="bg-slate-950 border border-slate-800 text-slate-300 px-2.5 py-1.5 rounded-lg">HTML</span>
+                </div>
+            </div>
+
+            <!-- Data Science -->
+            <div class="bg-ai-card border border-ai-border rounded-2xl p-6 hover:border-ai-purple/50 transition-all group" data-aos="fade-up" data-aos-delay="200">
+                <div class="w-12 h-12 bg-ai-purple/10 rounded-xl flex items-center justify-center text-ai-purple text-xl mb-4 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-chart-pie"></i>
+                </div>
+                <h3 class="text-lg font-bold mb-4">Data Science</h3>
+                <div class="flex flex-wrap gap-2 font-code text-xs">
+                    <span class="bg-slate-950 border border-slate-800 text-slate-300 px-2.5 py-1.5 rounded-lg">NumPy</span>
+                    <span class="bg-slate-950 border border-slate-800 text-slate-300 px-2.5 py-1.5 rounded-lg">Pandas</span>
+                    <span class="bg-slate-950 border border-slate-800 text-slate-300 px-2.5 py-1.5 rounded-lg">Matplotlib</span>
+                    <span class="bg-slate-950 border border-slate-800 text-slate-300 px-2.5 py-1.5 rounded-lg">Seaborn</span>
+                    <span class="bg-slate-950 border border-slate-800 text-slate-300 px-2.5 py-1.5 rounded-lg">EDA</span>
+                </div>
+            </div>
+
+            <!-- Machine Learning -->
+            <div class="bg-ai-card border border-ai-border rounded-2xl p-6 hover:border-ai-emerald/50 transition-all group" data-aos="fade-up" data-aos-delay="300">
+                <div class="w-12 h-12 bg-ai-emerald/10 rounded-xl flex items-center justify-center text-ai-emerald text-xl mb-4 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-brain"></i>
+                </div>
+                <h3 class="text-lg font-bold mb-4">Machine Learning</h3>
+                <div class="flex flex-wrap gap-2 font-code text-xs">
+                    <span class="bg-slate-950 border border-slate-800 text-slate-300 px-2.5 py-1.5 rounded-lg">Scikit-Learn</span>
+                    <span class="bg-slate-950 border border-slate-800 text-slate-300 px-2.5 py-1.5 rounded-lg">Classification</span>
+                    <span class="bg-slate-950 border border-slate-800 text-slate-300 px-2.5 py-1.5 rounded-lg">Regression</span>
+                    <span class="bg-slate-950 border border-slate-800 text-slate-300 px-2.5 py-1.5 rounded-lg">Clustering</span>
+                </div>
+            </div>
+
+            <!-- Tools -->
+            <div class="bg-ai-card border border-ai-border rounded-2xl p-6 hover:border-ai-amber/50 transition-all group" data-aos="fade-up" data-aos-delay="400">
+                <div class="w-12 h-12 bg-ai-amber/10 rounded-xl flex items-center justify-center text-ai-amber text-xl mb-4 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-toolbox"></i>
+                </div>
+                <h3 class="text-lg font-bold mb-4">Tools &amp; Env</h3>
+                <div class="flex flex-wrap gap-2 font-code text-xs">
+                    <span class="bg-slate-950 border border-slate-800 text-slate-300 px-2.5 py-1.5 rounded-lg">Git &amp; GitHub</span>
+                    <span class="bg-slate-950 border border-slate-800 text-slate-300 px-2.5 py-1.5 rounded-lg">Streamlit</span>
+                    <span class="bg-slate-950 border border-slate-800 text-slate-300 px-2.5 py-1.5 rounded-lg">VS Code</span>
+                    <span class="bg-slate-950 border border-slate-800 text-slate-300 px-2.5 py-1.5 rounded-lg">Jupyter</span>
+                    <span class="bg-slate-950 border border-slate-800 text-slate-300 px-2.5 py-1.5 rounded-lg">Google Colab</span>
+                    <span class="bg-slate-950 border border-slate-800 text-slate-300 px-2.5 py-1.5 rounded-lg">Kaggle</span>
+                    <span class="bg-slate-950 border border-slate-800 text-slate-300 px-2.5 py-1.5 rounded-lg">PyCharm</span>
+                    <span class="bg-slate-950 border border-slate-800 text-slate-300 px-2.5 py-1.5 rounded-lg">Hugging Face</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Projects Section -->
+    <section id="projects" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-16 space-y-4" data-aos="fade-up">
+            <div class="inline-block px-3 py-1 rounded-full bg-ai-cyan/10 border border-ai-cyan/30 text-ai-cyan text-xs font-code">
+                PORTFOLIO PROJECTS
+            </div>
+            <h2 class="text-3xl sm:text-5xl font-black">Featured Projects</h2>
+            <p class="text-slate-400 max-w-2xl mx-auto">Machine Learning models, predictive analytics, and software solutions built with clean architecture.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            
+            <!-- Project 1: Stroke Prediction System -->
+            <div class="bg-ai-card border border-ai-border rounded-2xl overflow-hidden hover:border-ai-cyan/60 transition-all flex flex-col justify-between group" data-aos="fade-up" data-aos-delay="100">
+                <div class="h-56 bg-slate-950 relative p-6 flex items-center justify-center overflow-hidden border-b border-ai-border">
+                    <div class="text-center space-y-2">
+                        <i class="fa-solid fa-heart-pulse text-6xl text-ai-cyan/40 group-hover:scale-125 transition-transform duration-500"></i>
+                        <p class="text-slate-400 text-xs font-code">Healthcare AI Analytics</p>
+                    </div>
+                    <span class="absolute top-3 right-3 z-20 bg-ai-cyan/20 border border-ai-cyan/40 text-ai-cyan text-[10px] font-code px-3 py-1 rounded-full">ML &amp; Streamlit</span>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                        <div class="text-ai-cyan font-code font-bold text-xs mb-1">01 / MACHINE LEARNING</div>
+                        <h3 class="text-xl font-bold mb-2 group-hover:text-ai-cyan transition-colors">Stroke Prediction System</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-4">
+                            A Machine Learning system that evaluates stroke risk from patient demographic and health factors. Features full EDA, preprocessing pipeline, model training, and Streamlit deployment.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="flex flex-wrap gap-2 mb-6 font-code text-[11px]">
+                            <span class="bg-slate-950 text-slate-300 px-2.5 py-1 rounded-md border border-slate-800">Python</span>
+                            <span class="bg-slate-950 text-slate-300 px-2.5 py-1 rounded-md border border-slate-800">Pandas</span>
+                            <span class="bg-slate-950 text-slate-300 px-2.5 py-1 rounded-md border border-slate-800">Scikit-learn</span>
+                            <span class="bg-slate-950 text-slate-300 px-2.5 py-1 rounded-md border border-slate-800">Streamlit</span>
+                        </div>
+                        <div class="flex justify-between items-center border-t border-slate-800 pt-4 font-code text-xs">
+                            <a href="https://github.com/samaelsheikh23/Stroke-Prediction-App" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white flex items-center gap-1.5"><i class="fa-brands fa-github text-sm"></i> GitHub</a>
+                            <a href="https://stroke-prediction-app-digp6g3vvd8rrzj6z3z5bw.streamlit.app/" target="_blank" rel="noopener noreferrer" class="text-ai-cyan hover:underline flex items-center gap-1">Live Demo <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2: Battery Health Prediction -->
+            <div class="bg-ai-card border border-ai-border rounded-2xl overflow-hidden hover:border-ai-emerald/60 transition-all flex flex-col justify-between group" data-aos="fade-up" data-aos-delay="200">
+                <div class="h-56 bg-slate-950 relative p-6 flex items-center justify-center overflow-hidden border-b border-ai-border">
+                    <div class="text-center space-y-2">
+                        <i class="fa-solid fa-battery-three-quarters text-6xl text-ai-emerald/40 group-hover:scale-125 transition-transform duration-500"></i>
+                        <p class="text-slate-400 text-xs font-code">Predictive Analytics App</p>
+                    </div>
+                    <span class="absolute top-3 right-3 z-20 bg-ai-emerald/20 border border-ai-emerald/40 text-ai-emerald text-[10px] font-code px-3 py-1 rounded-full">ML &amp; Streamlit</span>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                        <div class="text-ai-emerald font-code font-bold text-xs mb-1">02 / PREDICTIVE MODELING</div>
+                        <h3 class="text-xl font-bold mb-2 group-hover:text-ai-emerald transition-colors">Battery Health Prediction</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-4">
+                            An intelligent Machine Learning model estimating battery degradation and State of Health (SoH) based on usage cycles, voltage, and temperature metrics.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="flex flex-wrap gap-2 mb-6 font-code text-[11px]">
+                            <span class="bg-slate-950 text-slate-300 px-2.5 py-1 rounded-md border border-slate-800">Python</span>
+                            <span class="bg-slate-950 text-slate-300 px-2.5 py-1 rounded-md border border-slate-800">Pandas</span>
+                            <span class="bg-slate-950 text-slate-300 px-2.5 py-1 rounded-md border border-slate-800">Scikit-learn</span>
+                            <span class="bg-slate-950 text-slate-300 px-2.5 py-1 rounded-md border border-slate-800">Streamlit</span>
+                        </div>
+                        <div class="flex justify-between items-center border-t border-slate-800 pt-4 font-code text-xs">
+                            <a href="https://github.com/samaelsheikh23/Battery_Health_Prediction" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white flex items-center gap-1.5"><i class="fa-brands fa-github text-sm"></i> GitHub</a>
+                            <a href="https://battery-health-prediction.streamlit.app/" target="_blank" rel="noopener noreferrer" class="text-ai-emerald hover:underline flex items-center gap-1">Live Demo <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3: Hospital Management System -->
+            <div class="bg-ai-card border border-ai-border rounded-2xl overflow-hidden hover:border-ai-purple/60 transition-all flex flex-col justify-between group" data-aos="fade-up" data-aos-delay="300">
+                <div class="h-56 bg-slate-950 relative p-6 flex items-center justify-center overflow-hidden border-b border-ai-border">
+                    <div class="text-center space-y-2">
+                        <i class="fa-solid fa-hospital-user text-6xl text-ai-purple/40 group-hover:scale-125 transition-transform duration-500"></i>
+                        <p class="text-slate-500 text-xs font-code">JavaFX Desktop System</p>
+                    </div>
+                    <span class="absolute top-3 right-3 z-20 bg-ai-purple/20 border border-ai-purple/40 text-ai-purple text-[10px] font-code px-3 py-1 rounded-full">Java &amp; SQLite</span>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                        <div class="text-ai-purple font-code font-bold text-xs mb-1">03 / DESKTOP SYSTEM</div>
+                        <h3 class="text-xl font-bold mb-2 group-hover:text-ai-purple transition-colors">Hospital Management System</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-4">
+                            A complete desktop application for medical administration, managing patient records, doctor appointments, billing, prescriptions, and departmental records.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="flex flex-wrap gap-2 mb-6 font-code text-[11px]">
+                            <span class="bg-slate-950 text-slate-300 px-2.5 py-1 rounded-md border border-slate-800">Java</span>
+                            <span class="bg-slate-950 text-slate-300 px-2.5 py-1 rounded-md border border-slate-800">JavaFX</span>
+                            <span class="bg-slate-950 text-slate-300 px-2.5 py-1 rounded-md border border-slate-800">SQLite</span>
+                            <span class="bg-slate-950 text-slate-300 px-2.5 py-1 rounded-md border border-slate-800">OOP</span>
+                        </div>
+                        <div class="flex justify-between items-center border-t border-slate-800 pt-4 font-code text-xs">
+                            <a href="https://github.com/pglava7-oss/hospital-management-system" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white flex items-center gap-1.5"><i class="fa-brands fa-github text-sm"></i> GitHub</a>
+                            <span class="text-slate-600 font-code">Desktop GUI</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4: Sudoku AI Game -->
+            <div class="bg-ai-card border border-ai-border rounded-2xl overflow-hidden hover:border-ai-amber/60 transition-all flex flex-col justify-between group" data-aos="fade-up" data-aos-delay="400">
+                <div class="h-56 bg-slate-950 relative p-6 flex items-center justify-center overflow-hidden border-b border-ai-border">
+                    <div class="text-center space-y-2">
+                        <i class="fa-solid fa-gamepad text-6xl text-ai-amber/40 group-hover:scale-125 transition-transform duration-500"></i>
+                        <p class="text-slate-500 text-xs font-code">Backtracking Algorithm</p>
+                    </div>
+                    <span class="absolute top-3 right-3 z-20 bg-ai-amber/20 border border-ai-amber/40 text-ai-amber text-[10px] font-code px-3 py-1 rounded-full">Python &amp; AI</span>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                        <div class="text-ai-amber font-code font-bold text-xs mb-1">04 / ALGORITHM SOLVER</div>
+                        <h3 class="text-xl font-bold mb-2 group-hover:text-ai-amber transition-colors">Sudoku Game with AI Solver</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-4">
+                            Interactive desktop Sudoku game created with Python and Tkinter, featuring an automatic puzzle solver utilizing recursive Backtracking search.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="flex flex-wrap gap-2 mb-6 font-code text-[11px]">
+                            <span class="bg-slate-950 text-slate-300 px-2.5 py-1 rounded-md border border-slate-800">Python</span>
+                            <span class="bg-slate-950 text-slate-300 px-2.5 py-1 rounded-md border border-slate-800">Tkinter</span>
+                            <span class="bg-slate-950 text-slate-300 px-2.5 py-1 rounded-md border border-slate-800">Backtracking</span>
+                        </div>
+                        <div class="flex justify-between items-center border-t border-slate-800 pt-4 font-code text-xs">
+                            <a href="https://github.com/samaelsheikh23/Sudoku_Game_With-_AI" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white flex items-center gap-1.5"><i class="fa-brands fa-github text-sm"></i> GitHub</a>
+                            <span class="text-slate-600 font-code">AI Solver</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Education, Training & Experience Section -->
+    <section id="education" class="py-24 px-6 max-w-5xl mx-auto">
+        <div class="text-center mb-16 space-y-4" data-aos="fade-up">
+            <div class="inline-block px-3 py-1 rounded-full bg-ai-accent/10 border border-ai-accent/30 text-ai-accent text-xs font-code">
+                BACKGROUND &amp; EXPERIENCE
+            </div>
+            <h2 class="text-3xl sm:text-5xl font-black">Education &amp; Experience</h2>
+            <p class="text-slate-400 max-w-xl mx-auto">Academic institution, intensive institute trainings, and developer community activities.</p>
+        </div>
+
+        <div class="space-y-12">
+            
+            <!-- Category: Education -->
+            <div data-aos="fade-up">
+                <h3 class="text-xl font-bold text-ai-cyan mb-6 flex items-center gap-2 font-code">
+                    <i class="fa-solid fa-graduation-cap"></i> Formal Education
+                </h3>
+                <div class="border-l-2 border-ai-cyan/40 pl-6">
+                    <div class="bg-ai-card border border-ai-border p-6 rounded-2xl relative">
+                        <div class="flex flex-col sm:flex-row justify-between sm:items-center mb-2 gap-1">
+                            <h4 class="text-lg font-bold text-white">B.Sc. in Computer Science</h4>
+                            <span class="text-xs font-code text-ai-cyan bg-slate-950 border border-slate-800 px-3 py-1 rounded-full w-fit">Expected Graduation: 2028</span>
+                        </div>
+                        <p class="text-ai-cyan text-xs font-code mb-1">Damanhour University – Faculty of Computers and Information Sciences</p>
+                        <p class="text-slate-400 text-xs">Department: Computer Science</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category: Training -->
+            <div data-aos="fade-up">
+                <h3 class="text-xl font-bold text-ai-purple mb-6 flex items-center gap-2 font-code">
+                    <i class="fa-solid fa-award"></i> Intensive Training Programs
+                </h3>
+                <div class="border-l-2 border-ai-purple/40 pl-6 space-y-6">
+                    <div class="bg-ai-card border border-ai-border p-6 rounded-2xl">
+                        <div class="flex flex-col sm:flex-row justify-between sm:items-center mb-1 gap-1">
+                            <h4 class="text-lg font-bold text-white">Applied Data Science &amp; Machine Learning</h4>
+                            <span class="text-xs font-code text-ai-purple bg-slate-950 border border-slate-800 px-3 py-1 rounded-full w-fit">Summer Training</span>
+                        </div>
+                        <p class="text-ai-purple text-xs font-code">Information Technology Institute (ITI)</p>
+                    </div>
+
+                    <div class="bg-ai-card border border-ai-border p-6 rounded-2xl">
+                        <div class="flex flex-col sm:flex-row justify-between sm:items-center mb-1 gap-1">
+                            <h4 class="text-lg font-bold text-white">Mobile Application Development (Flutter)</h4>
+                            <span class="text-xs font-code text-ai-purple bg-slate-950 border border-slate-800 px-3 py-1 rounded-full w-fit">Summer Training</span>
+                        </div>
+                        <p class="text-ai-purple text-xs font-code">Information Technology Institute (ITI)</p>
+                    </div>
+
+                    <div class="bg-ai-card border border-ai-border p-6 rounded-2xl">
+                        <div class="flex flex-col sm:flex-row justify-between sm:items-center mb-1 gap-1">
+                            <h4 class="text-lg font-bold text-white">Machine Learning for Data Analysis</h4>
+                            <span class="text-xs font-code text-ai-purple bg-slate-950 border border-slate-800 px-3 py-1 rounded-full w-fit">Creativa Training</span>
+                        </div>
+                        <p class="text-ai-purple text-xs font-code">National Telecommunication Institute (NTI)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category: Community Experience -->
+            <div data-aos="fade-up">
+                <h3 class="text-xl font-bold text-ai-amber mb-6 flex items-center gap-2 font-code">
+                    <i class="fa-solid fa-users"></i> Community Experience
+                </h3>
+                <div class="border-l-2 border-ai-amber/40 pl-6">
+                    <div class="bg-ai-card border border-ai-border p-6 rounded-2xl">
+                        <div class="flex flex-col sm:flex-row justify-between sm:items-center mb-2 gap-1">
+                            <h4 class="text-lg font-bold text-white">IT Member — Backend Team</h4>
+                            <span class="text-xs font-code text-ai-amber bg-slate-950 border border-slate-800 px-3 py-1 rounded-full w-fit">Google Developer Groups</span>
+                        </div>
+                        <p class="text-ai-amber text-xs font-code mb-4">GDG Community</p>
+                        <div class="mb-4 cursor-pointer" onclick="openCertificate('assets/gdg.jpeg')">
+                            <img src="assets/gdg.jpeg" alt="GDG event" class="max-h-56 rounded-xl border border-ai-border hover:border-ai-amber transition-colors" onerror="this.onerror=null; this.src='https://placehold.co/600x300/0d1322/f59e0b?text=GDG+Event+Photo';">
+                        </div>
+                        <p class="text-slate-400 text-xs leading-relaxed">
+                            Active IT member participating in backend technical tasks and collaborative developer events.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Verified Certificates Gallery Section -->
+    <!-- Verified Certificates Section with Auto-Playing Carousel -->
+    <section id="certificates" class="py-24 px-6 max-w-7xl mx-auto relative">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6" data-aos="fade-up">
+            <div class="space-y-3 max-w-2xl">
+                <div class="inline-block px-3 py-1 rounded-full bg-ai-cyan/10 border border-ai-cyan/30 text-ai-cyan text-xs font-code">
+                    VERIFIED CREDENTIALS &amp; CERTIFICATES
+                </div>
+                <h2 class="text-3xl sm:text-5xl font-black">Certificates &amp; Achievements</h2>
+                <p class="text-slate-400 text-sm sm:text-base">Browse through verified certifications in Data Science, Machine Learning, Problem Solving, and Software Engineering. Click any certificate to open full preview.</p>
+            </div>
+            
+            <!-- Carousel Navigation Controls -->
+            <div class="flex items-center gap-3 self-start md:self-auto">
+                <button id="certPrevBtn" onclick="prevCertSlide()" class="p-3.5 rounded-xl bg-slate-900/90 border border-ai-border text-slate-300 hover:text-ai-cyan hover:border-ai-cyan hover:scale-105 transition-all shadow-md active:scale-95 flex items-center justify-center cursor-pointer" aria-label="Previous Certificate">
+                    <i class="fa-solid fa-chevron-left text-sm"></i>
+                </button>
+                <button id="certNextBtn" onclick="nextCertSlide()" class="p-3.5 rounded-xl bg-slate-900/90 border border-ai-border text-slate-300 hover:text-ai-cyan hover:border-ai-cyan hover:scale-105 transition-all shadow-md active:scale-95 flex items-center justify-center cursor-pointer" aria-label="Next Certificate">
+                    <i class="fa-solid fa-chevron-right text-sm"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Carousel Container -->
+        <div class="relative overflow-hidden rounded-3xl" id="certCarouselWrapper" onmouseenter="pauseCertAutoPlay()" onmouseleave="startCertAutoPlay()">
+            <div id="certCarouselTrack" class="flex transition-transform duration-500 ease-out">
+                
+                <!-- Slide 1: Coursera -->
+                <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 p-3">
+                    <div class="bg-ai-card border border-ai-border hover:border-ai-cyan/60 rounded-2xl p-5 flex flex-col justify-between h-full transition-all duration-300 hover:shadow-xl hover:shadow-ai-cyan/10 group">
+                        <div class="mb-3">
+                            <div class="flex items-center justify-between gap-2 mb-2">
+                                <span class="px-2.5 py-1 rounded-md text-[10px] font-code bg-slate-950 border border-ai-cyan/30 text-ai-cyan">Coursera</span>
+                                <span class="text-[11px] text-slate-500 font-code group-hover:text-ai-cyan transition-colors flex items-center gap-1"><i class="fa-solid fa-expand"></i> Zoom</span>
+                            </div>
+                            <h3 class="font-bold text-base text-white mb-1 group-hover:text-ai-cyan transition-colors">Supervised Machine Learning</h3>
+                            <p class="text-slate-400 text-xs">Regression and Classification by Andrew Ng &amp; DeepLearning.AI</p>
+                        </div>
+                        <img src="assets/co.jpeg" alt="Coursera Certificate" class="w-full h-60 sm:h-64 object-contain rounded-xl cursor-pointer hover:scale-[1.03] transition-transform duration-300" onclick="openCertificate(this.src)" onerror="this.onerror=null; this.src='https://placehold.co/400x260/0d1322/06b6d4?text=Coursera';">
+                    </div>
+                </div>
+
+                <!-- Slide 2: CS50 -->
+                <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 p-3">
+                    <div class="bg-ai-card border border-ai-border hover:border-ai-purple/60 rounded-2xl p-5 flex flex-col justify-between h-full transition-all duration-300 hover:shadow-xl hover:shadow-ai-purple/10 group">
+                        <div class="mb-3">
+                            <div class="flex items-center justify-between gap-2 mb-2">
+                                <span class="px-2.5 py-1 rounded-md text-[10px] font-code bg-slate-950 border border-ai-purple/30 text-ai-purple">CS50 Harvard</span>
+                                <span class="text-[11px] text-slate-500 font-code group-hover:text-ai-purple transition-colors flex items-center gap-1"><i class="fa-solid fa-expand"></i> Zoom</span>
+                            </div>
+                            <h3 class="font-bold text-base text-white mb-1 group-hover:text-ai-purple transition-colors">CS50 Python Programming</h3>
+                            <p class="text-slate-400 text-xs">Introduction to Programming Using Python</p>
+                        </div>
+                        <img src="assets/cs50.jpeg" alt="CS50 Certificate" class="w-full h-60 sm:h-64 object-contain rounded-xl cursor-pointer hover:scale-[1.03] transition-transform duration-300" onclick="openCertificate(this.src)" onerror="this.onerror=null; this.src='https://placehold.co/400x260/0d1322/8b5cf6?text=CS50';">
+                    </div>
+                </div>
+
+                <!-- Slide 3: DataCamp -->
+                <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 p-3">
+                    <div class="bg-ai-card border border-ai-border hover:border-ai-emerald/60 rounded-2xl p-5 flex flex-col justify-between h-full transition-all duration-300 hover:shadow-xl hover:shadow-ai-emerald/10 group">
+                        <div class="mb-3">
+                            <div class="flex items-center justify-between gap-2 mb-2">
+                                <span class="px-2.5 py-1 rounded-md text-[10px] font-code bg-slate-950 border border-ai-emerald/30 text-ai-emerald">DataCamp</span>
+                                <span class="text-[11px] text-slate-500 font-code group-hover:text-ai-emerald transition-colors flex items-center gap-1"><i class="fa-solid fa-expand"></i> Zoom</span>
+                            </div>
+                            <h3 class="font-bold text-base text-white mb-1 group-hover:text-ai-emerald transition-colors">Python for Data Science</h3>
+                            <p class="text-slate-400 text-xs">Data Manipulation, NumPy Arrays &amp; Analysis</p>
+                        </div>
+                        <img src="assets/dt.jpeg" alt="DataCamp Certificate" class="w-full h-60 sm:h-64 object-contain rounded-xl cursor-pointer hover:scale-[1.03] transition-transform duration-300" onclick="openCertificate(this.src)" onerror="this.onerror=null; this.src='https://placehold.co/400x260/0d1322/10b981?text=DataCamp';">
+                    </div>
+                </div>
+
+                <!-- Slide 4: HackerRank -->
+                <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 p-3">
+                    <div class="bg-ai-card border border-ai-border hover:border-ai-amber/60 rounded-2xl p-5 flex flex-col justify-between h-full transition-all duration-300 hover:shadow-xl hover:shadow-ai-amber/10 group">
+                        <div class="mb-3">
+                            <div class="flex items-center justify-between gap-2 mb-2">
+                                <span class="px-2.5 py-1 rounded-md text-[10px] font-code bg-slate-950 border border-ai-amber/30 text-ai-amber">HackerRank</span>
+                                <span class="text-[11px] text-slate-500 font-code group-hover:text-ai-amber transition-colors flex items-center gap-1"><i class="fa-solid fa-expand"></i> Zoom</span>
+                            </div>
+                            <h3 class="font-bold text-base text-white mb-1 group-hover:text-ai-amber transition-colors">Java Fundamentals</h3>
+                            <p class="text-slate-400 text-xs">Java Programming, OOP &amp; Problem Solving</p>
+                        </div>
+                        <img src="assets/hr.jpeg" alt="HackerRank Certificate" class="w-full h-60 sm:h-64 object-contain rounded-xl cursor-pointer hover:scale-[1.03] transition-transform duration-300" onclick="openCertificate(this.src)" onerror="this.onerror=null; this.src='https://placehold.co/400x260/0d1322/f59e0b?text=HackerRank';">
+                    </div>
+                </div>
+
+                <!-- Slide 5: DPC -->
+                <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 p-3">
+                    <div class="bg-ai-card border border-ai-border hover:border-ai-rose/60 rounded-2xl p-5 flex flex-col justify-between h-full transition-all duration-300 hover:shadow-xl hover:shadow-ai-rose/10 group">
+                        <div class="mb-3">
+                            <div class="flex items-center justify-between gap-2 mb-2">
+                                <span class="px-2.5 py-1 rounded-md text-[10px] font-code bg-slate-950 border border-ai-rose/30 text-ai-rose">DPC</span>
+                                <span class="text-[11px] text-slate-500 font-code group-hover:text-ai-rose transition-colors flex items-center gap-1"><i class="fa-solid fa-expand"></i> Zoom</span>
+                            </div>
+                            <h3 class="font-bold text-base text-white mb-1 group-hover:text-ai-rose transition-colors">DPC Competitive Programming</h3>
+                            <p class="text-slate-400 text-xs">Algorithms &amp; Problem Solving Training</p>
+                        </div>
+                        <img src="assets/dp.jpeg" alt="DPC Certificate" class="w-full h-60 sm:h-64 object-contain rounded-xl cursor-pointer hover:scale-[1.03] transition-transform duration-300" onclick="openCertificate(this.src)" onerror="this.onerror=null; this.src='https://placehold.co/400x260/0d1322/f43f5e?text=DPC';">
+                    </div>
+                </div>
+
+                <!-- Slide 6: TOT -->
+                <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 p-3">
+                    <div class="bg-ai-card border border-ai-border hover:border-ai-cyan/60 rounded-2xl p-5 flex flex-col justify-between h-full transition-all duration-300 hover:shadow-xl hover:shadow-ai-cyan/10 group">
+                        <div class="mb-3">
+                            <div class="flex items-center justify-between gap-2 mb-2">
+                                <span class="px-2.5 py-1 rounded-md text-[10px] font-code bg-slate-950 border border-ai-cyan/30 text-ai-cyan">TOT</span>
+                                <span class="text-[11px] text-slate-500 font-code group-hover:text-ai-cyan transition-colors flex items-center gap-1"><i class="fa-solid fa-expand"></i> Zoom</span>
+                            </div>
+                            <h3 class="font-bold text-base text-white mb-1 group-hover:text-ai-cyan transition-colors">Training of Trainers (TOT)</h3>
+                            <p class="text-slate-400 text-xs">Training Delivery &amp; Mentorship Certification</p>
+                        </div>
+                        <img src="assets/tot.jpeg" alt="TOT Certificate" class="w-full h-60 sm:h-64 object-contain rounded-xl cursor-pointer hover:scale-[1.03] transition-transform duration-300" onclick="openCertificate(this.src)" onerror="this.onerror=null; this.src='https://placehold.co/400x260/0d1322/06b6d4?text=TOT';">
+                    </div>
+                </div>
+
+                <!-- Slide 7: ITI 1 -->
+                <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 p-3">
+                    <div class="bg-ai-card border border-ai-border hover:border-ai-purple/60 rounded-2xl p-5 flex flex-col justify-between h-full transition-all duration-300 hover:shadow-xl hover:shadow-ai-purple/10 group">
+                        <div class="mb-3">
+                            <div class="flex items-center justify-between gap-2 mb-2">
+                                <span class="px-2.5 py-1 rounded-md text-[10px] font-code bg-slate-950 border border-ai-purple/30 text-ai-purple">ITI Institute</span>
+                                <span class="text-[11px] text-slate-500 font-code group-hover:text-ai-purple transition-colors flex items-center gap-1"><i class="fa-solid fa-expand"></i> Zoom</span>
+                            </div>
+                            <h3 class="font-bold text-base text-white mb-1 group-hover:text-ai-purple transition-colors">Applied Data Science &amp; ML</h3>
+                            <p class="text-slate-400 text-xs">Information Technology Institute Summer Training</p>
+                        </div>
+                        <img src="assets/iti1.jpeg" alt="ITI Certificate 1" class="w-full h-60 sm:h-64 object-contain rounded-xl cursor-pointer hover:scale-[1.03] transition-transform duration-300" onclick="openCertificate(this.src)" onerror="this.onerror=null; this.src='https://placehold.co/400x260/0d1322/8b5cf6?text=ITI+1';">
+                    </div>
+                </div>
+
+                <!-- Slide 8: ITI 2 -->
+                <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 p-3">
+                    <div class="bg-ai-card border border-ai-border hover:border-ai-purple/60 rounded-2xl p-5 flex flex-col justify-between h-full transition-all duration-300 hover:shadow-xl hover:shadow-ai-purple/10 group">
+                        <div class="mb-3">
+                            <div class="flex items-center justify-between gap-2 mb-2">
+                                <span class="px-2.5 py-1 rounded-md text-[10px] font-code bg-slate-950 border border-ai-purple/30 text-ai-purple">ITI Institute</span>
+                                <span class="text-[11px] text-slate-500 font-code group-hover:text-ai-purple transition-colors flex items-center gap-1"><i class="fa-solid fa-expand"></i> Zoom</span>
+                            </div>
+                            <h3 class="font-bold text-base text-white mb-1 group-hover:text-ai-purple transition-colors">Mobile App Development</h3>
+                            <p class="text-slate-400 text-xs">Flutter &amp; Dart Mobile Applications Training</p>
+                        </div>
+                        <img src="assets/iti2.jpeg" alt="ITI Certificate 2" class="w-full h-60 sm:h-64 object-contain rounded-xl cursor-pointer hover:scale-[1.03] transition-transform duration-300" onclick="openCertificate(this.src)" onerror="this.onerror=null; this.src='https://placehold.co/400x260/0d1322/8b5cf6?text=ITI+2';">
+                    </div>
+                </div>
+
+                <!-- Slide 9: Mahara-Tech 1 -->
+                <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 p-3">
+                    <div class="bg-ai-card border border-ai-border hover:border-ai-cyan/60 rounded-2xl p-5 flex flex-col justify-between h-full transition-all duration-300 hover:shadow-xl hover:shadow-ai-cyan/10 group">
+                        <div class="mb-3">
+                            <div class="flex items-center justify-between gap-2 mb-2">
+                                <span class="px-2.5 py-1 rounded-md text-[10px] font-code bg-slate-950 border border-ai-cyan/30 text-ai-cyan">Mahara-Tech</span>
+                                <span class="text-[11px] text-slate-500 font-code group-hover:text-ai-cyan transition-colors flex items-center gap-1"><i class="fa-solid fa-expand"></i> Zoom</span>
+                            </div>
+                            <h3 class="font-bold text-base text-white mb-1 group-hover:text-ai-cyan transition-colors">Data Science Foundations</h3>
+                            <p class="text-slate-400 text-xs">Mahara-Tech ITI Professional Certification</p>
+                        </div>
+                        <img src="assets/mt1.png" alt="Mahara-Tech Certificate 1" class="w-full h-60 sm:h-64 object-contain rounded-xl cursor-pointer hover:scale-[1.03] transition-transform duration-300" onclick="openCertificate(this.src)" onerror="this.onerror=null; this.src='https://placehold.co/400x260/0d1322/06b6d4?text=Mahara-Tech+1';">
+                    </div>
+                </div>
+
+                <!-- Slide 10: Mahara-Tech 2 -->
+                <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 p-3">
+                    <div class="bg-ai-card border border-ai-border hover:border-ai-cyan/60 rounded-2xl p-5 flex flex-col justify-between h-full transition-all duration-300 hover:shadow-xl hover:shadow-ai-cyan/10 group">
+                        <div class="mb-3">
+                            <div class="flex items-center justify-between gap-2 mb-2">
+                                <span class="px-2.5 py-1 rounded-md text-[10px] font-code bg-slate-950 border border-ai-cyan/30 text-ai-cyan">Mahara-Tech</span>
+                                <span class="text-[11px] text-slate-500 font-code group-hover:text-ai-cyan transition-colors flex items-center gap-1"><i class="fa-solid fa-expand"></i> Zoom</span>
+                            </div>
+                            <h3 class="font-bold text-base text-white mb-1 group-hover:text-ai-cyan transition-colors">Machine Learning Models</h3>
+                            <p class="text-slate-400 text-xs">Model Building, Training &amp; Hyperparameter Tuning</p>
+                        </div>
+                        <img src="assets/mt2.jpeg" alt="Mahara-Tech Certificate 2" class="w-full h-60 sm:h-64 object-contain rounded-xl cursor-pointer hover:scale-[1.03] transition-transform duration-300" onclick="openCertificate(this.src)" onerror="this.onerror=null; this.src='https://placehold.co/400x260/0d1322/06b6d4?text=Mahara-Tech+2';">
+                    </div>
+                </div>
+
+                <!-- Slide 11: Mahara-Tech 3 -->
+                <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 p-3">
+                    <div class="bg-ai-card border border-ai-border hover:border-ai-cyan/60 rounded-2xl p-5 flex flex-col justify-between h-full transition-all duration-300 hover:shadow-xl hover:shadow-ai-cyan/10 group">
+                        <div class="mb-3">
+                            <div class="flex items-center justify-between gap-2 mb-2">
+                                <span class="px-2.5 py-1 rounded-md text-[10px] font-code bg-slate-950 border border-ai-cyan/30 text-ai-cyan">Mahara-Tech</span>
+                                <span class="text-[11px] text-slate-500 font-code group-hover:text-ai-cyan transition-colors flex items-center gap-1"><i class="fa-solid fa-expand"></i> Zoom</span>
+                            </div>
+                            <h3 class="font-bold text-base text-white mb-1 group-hover:text-ai-cyan transition-colors">Python for AI &amp; Analytics</h3>
+                            <p class="text-slate-400 text-xs">Scientific Computing with Python &amp; Pandas</p>
+                        </div>
+                        <img src="assets/mt3.jpeg" alt="Mahara-Tech Certificate 3" class="w-full h-60 sm:h-64 object-contain rounded-xl cursor-pointer hover:scale-[1.03] transition-transform duration-300" onclick="openCertificate(this.src)" onerror="this.onerror=null; this.src='https://placehold.co/400x260/0d1322/06b6d4?text=Mahara-Tech+3';">
+                    </div>
+                </div>
+
+                <!-- Slide 12: Mahara-Tech 4 -->
+                <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 p-3">
+                    <div class="bg-ai-card border border-ai-border hover:border-ai-cyan/60 rounded-2xl p-5 flex flex-col justify-between h-full transition-all duration-300 hover:shadow-xl hover:shadow-ai-cyan/10 group">
+                        <div class="mb-3">
+                            <div class="flex items-center justify-between gap-2 mb-2">
+                                <span class="px-2.5 py-1 rounded-md text-[10px] font-code bg-slate-950 border border-ai-cyan/30 text-ai-cyan">Mahara-Tech</span>
+                                <span class="text-[11px] text-slate-500 font-code group-hover:text-ai-cyan transition-colors flex items-center gap-1"><i class="fa-solid fa-expand"></i> Zoom</span>
+                            </div>
+                            <h3 class="font-bold text-base text-white mb-1 group-hover:text-ai-cyan transition-colors">AI &amp; Neural Concepts</h3>
+                            <p class="text-slate-400 text-xs">Neural Network Architecture &amp; Foundations</p>
+                        </div>
+                        <img src="assets/mt4.jpeg" alt="Mahara-Tech Certificate 4" class="w-full h-60 sm:h-64 object-contain rounded-xl cursor-pointer hover:scale-[1.03] transition-transform duration-300" onclick="openCertificate(this.src)" onerror="this.onerror=null; this.src='https://placehold.co/400x260/0d1322/06b6d4?text=Mahara-Tech+4';">
+                    </div>
+                </div>
+
+                <!-- Slide 13: Mahara-Tech 5 -->
+                <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 p-3">
+                    <div class="bg-ai-card border border-ai-border hover:border-ai-cyan/60 rounded-2xl p-5 flex flex-col justify-between h-full transition-all duration-300 hover:shadow-xl hover:shadow-ai-cyan/10 group">
+                        <div class="mb-3">
+                            <div class="flex items-center justify-between gap-2 mb-2">
+                                <span class="px-2.5 py-1 rounded-md text-[10px] font-code bg-slate-950 border border-ai-cyan/30 text-ai-cyan">Mahara-Tech</span>
+                                <span class="text-[11px] text-slate-500 font-code group-hover:text-ai-cyan transition-colors flex items-center gap-1"><i class="fa-solid fa-expand"></i> Zoom</span>
+                            </div>
+                            <h3 class="font-bold text-base text-white mb-1 group-hover:text-ai-cyan transition-colors">Applied Data Mastery</h3>
+                            <p class="text-slate-400 text-xs">End-to-End Practical Implementation</p>
+                        </div>
+                        <img src="assets/mt5.jpeg" alt="Mahara-Tech Certificate 5" class="w-full h-60 sm:h-64 object-contain rounded-xl cursor-pointer hover:scale-[1.03] transition-transform duration-300" onclick="openCertificate(this.src)" onerror="this.onerror=null; this.src='https://placehold.co/400x260/0d1322/06b6d4?text=Mahara-Tech+5';">
+                    </div>
+                </div>
+
+                <!-- Slide 14: Skills Area 1 -->
+                <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 p-3">
+                    <div class="bg-ai-card border border-ai-border hover:border-ai-emerald/60 rounded-2xl p-5 flex flex-col justify-between h-full transition-all duration-300 hover:shadow-xl hover:shadow-ai-emerald/10 group">
+                        <div class="mb-3">
+                            <div class="flex items-center justify-between gap-2 mb-2">
+                                <span class="px-2.5 py-1 rounded-md text-[10px] font-code bg-slate-950 border border-ai-emerald/30 text-ai-emerald">Skills Area</span>
+                                <span class="text-[11px] text-slate-500 font-code group-hover:text-ai-emerald transition-colors flex items-center gap-1"><i class="fa-solid fa-expand"></i> Zoom</span>
+                            </div>
+                            <h3 class="font-bold text-base text-white mb-1 group-hover:text-ai-emerald transition-colors">Artificial Intelligence Skills</h3>
+                            <p class="text-slate-400 text-xs">AI Competencies &amp; Problem Solving</p>
+                        </div>
+                        <img src="assets/sk1.jpeg" alt="Skills Area Certificate 1" class="w-full h-60 sm:h-64 object-contain rounded-xl cursor-pointer hover:scale-[1.03] transition-transform duration-300" onclick="openCertificate(this.src)" onerror="this.onerror=null; this.src='https://placehold.co/400x260/0d1322/10b981?text=Skills+Area+1';">
+                    </div>
+                </div>
+
+                <!-- Slide 15: Skills Area 2 -->
+                <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 p-3">
+                    <div class="bg-ai-card border border-ai-border hover:border-ai-emerald/60 rounded-2xl p-5 flex flex-col justify-between h-full transition-all duration-300 hover:shadow-xl hover:shadow-ai-emerald/10 group">
+                        <div class="mb-3">
+                            <div class="flex items-center justify-between gap-2 mb-2">
+                                <span class="px-2.5 py-1 rounded-md text-[10px] font-code bg-slate-950 border border-ai-emerald/30 text-ai-emerald">Skills Area</span>
+                                <span class="text-[11px] text-slate-500 font-code group-hover:text-ai-emerald transition-colors flex items-center gap-1"><i class="fa-solid fa-expand"></i> Zoom</span>
+                            </div>
+                            <h3 class="font-bold text-base text-white mb-1 group-hover:text-ai-emerald transition-colors">Software &amp; Data Development</h3>
+                            <p class="text-slate-400 text-xs">Technical Skills Area Certification</p>
+                        </div>
+                        <img src="assets/sk2.jpeg" alt="Skills Area Certificate 2" class="w-full h-60 sm:h-64 object-contain rounded-xl cursor-pointer hover:scale-[1.03] transition-transform duration-300" onclick="openCertificate(this.src)" onerror="this.onerror=null; this.src='https://placehold.co/400x260/0d1322/10b981?text=Skills+Area+2';">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Carousel Pagination Dots -->
+        <div class="flex items-center justify-center gap-2 mt-8" id="certCarouselDots"></div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <!-- Contact Info -->
+            <div class="lg:col-span-6 space-y-6" data-aos="fade-right">
+                <div class="space-y-3">
+                    <span class="text-xs font-code text-ai-cyan bg-ai-cyan/10 border border-ai-cyan/30 px-3 py-1 rounded-full">GET IN TOUCH</span>
+                    <h2 class="text-3xl sm:text-5xl font-black">Let's Connect &amp; Collaborate!</h2>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        I'm always interested in learning, building projects, and connecting with tech enthusiasts.
+                    </p>
+                </div>
+
+                <!-- Contact Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 font-code text-xs">
+                    <a href="mailto:samaelsheikh2006@gmail.com" class="bg-ai-card border border-ai-border p-4 rounded-xl hover:border-ai-cyan transition-colors flex items-center gap-3">
+                        <i class="fa-solid fa-envelope text-xl text-ai-cyan"></i>
+                        <div class="overflow-hidden">
+                            <span class="text-slate-500 block text-[10px]">EMAIL</span>
+                            <span class="text-slate-200 font-semibold truncate block">samaelsheikh2006@gmail.com</span>
+                        </div>
+                    </a>
+
+                    <a href="https://wa.me/201212100574" target="_blank" rel="noopener noreferrer" class="bg-ai-card border border-ai-border p-4 rounded-xl hover:border-ai-emerald transition-colors flex items-center gap-3">
+                        <i class="fa-brands fa-whatsapp text-xl text-ai-emerald"></i>
+                        <div>
+                            <span class="text-slate-500 block text-[10px]">WHATSAPP</span>
+                            <span class="text-slate-200 font-semibold">+20 121 210 0574</span>
+                        </div>
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/sama-elsheikh-02b75233a" target="_blank" rel="noopener noreferrer" class="bg-ai-card border border-ai-border p-4 rounded-xl hover:border-ai-purple transition-colors flex items-center gap-3">
+                        <i class="fa-brands fa-linkedin text-xl text-ai-purple"></i>
+                        <div>
+                            <span class="text-slate-500 block text-[10px]">LINKEDIN</span>
+                            <span class="text-slate-200 font-semibold">Sama Elsheikh</span>
+                        </div>
+                    </a>
+
+                    <a href="https://github.com/samaelsheikh23" target="_blank" rel="noopener noreferrer" class="bg-ai-card border border-ai-border p-4 rounded-xl hover:border-slate-400 transition-colors flex items-center gap-3">
+                        <i class="fa-brands fa-github text-xl text-slate-200"></i>
+                        <div>
+                            <span class="text-slate-500 block text-[10px]">GITHUB</span>
+                            <span class="text-slate-200 font-semibold">samaelsheikh23</span>
+                        </div>
+                    </a>
+
+                    <a href="https://www.facebook.com/share/1E7QcTZAna/" target="_blank" rel="noopener noreferrer" class="bg-ai-card border border-ai-border p-4 rounded-xl hover:border-blue-500 transition-colors flex items-center gap-3">
+                        <i class="fa-brands fa-facebook text-xl text-blue-500"></i>
+                        <div>
+                            <span class="text-slate-500 block text-[10px]">FACEBOOK</span>
+                            <span class="text-slate-200 font-semibold">Sama Elsheikh</span>
+                        </div>
+                    </a>
+
+                    <a href="https://www.instagram.com/sama_elsheikh23?igsh=bXZ1MjhtY2lsczZ4" target="_blank" rel="noopener noreferrer" class="bg-ai-card border border-ai-border p-4 rounded-xl hover:border-ai-rose transition-colors flex items-center gap-3">
+                        <i class="fa-brands fa-instagram text-xl text-ai-rose"></i>
+                        <div>
+                            <span class="text-slate-500 block text-[10px]">INSTAGRAM</span>
+                            <span class="text-slate-200 font-semibold">sama_elsheikh23</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Terminal Widget -->
+            <div class="lg:col-span-6" data-aos="fade-left" data-aos-delay="200">
+                <div class="bg-slate-950 border border-ai-border rounded-2xl p-6 shadow-2xl font-code text-xs space-y-4" dir="ltr">
+                    <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                        <div class="flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                            <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                            <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                            <span class="text-slate-500 text-[11px] ml-2">bash - sama_cli</span>
+                        </div>
+                        <span class="text-slate-600">v1.2.0</span>
+                    </div>
+
+                    <div id="terminal-body" class="space-y-2 h-64 overflow-y-auto text-slate-300 pr-2">
+                        <p class="text-ai-cyan">Welcome to Sama Elsheikh's Interactive CLI!</p>
+                        <p class="text-slate-500">Type <span class="text-amber-400">'help'</span> to list available commands.</p>
+                    </div>
+
+                    <!-- Input Line -->
+                    <div class="flex items-center gap-2 border-t border-slate-800 pt-3">
+                        <span class="text-ai-emerald">visitor@sama-ml:~$</span>
+                        <input type="text" id="terminal-input" onkeydown="handleTerminalCommand(event)" placeholder="type 'help', 'skills', or 'projects'..." class="bg-transparent border-none outline-none text-slate-100 flex-1 font-code">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificate Lightbox Modal -->
+    <div id="certificateModal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden items-center justify-center p-4 transition-opacity duration-300" role="dialog" aria-modal="true" aria-label="Certificate Preview">
+        <button onclick="closeCertificate()" class="absolute top-6 right-6 text-white hover:text-ai-cyan text-3xl transition-colors font-bold z-50" aria-label="Close Preview">&times;</button>
+        <img id="fullCertificate" src="" alt="Full Certificate Preview" class="max-w-[92vw] max-h-[88vh] object-contain rounded-xl border border-ai-border shadow-2xl">
+    </div>
+
+    <!-- Floating Back To Top Button -->
+    <button id="backToTop" onclick="scrollToTop()" class="fixed bottom-6 right-6 z-40 p-3.5 bg-slate-900/90 border border-ai-cyan/50 text-ai-cyan rounded-xl shadow-lg hover:scale-110 hover:bg-ai-cyan hover:text-slate-950 transition-all duration-300 opacity-0 pointer-events-none">
+        <i class="fa-solid fa-arrow-up text-sm"></i>
+    </button>
+
+    <footer class="border-t border-ai-border bg-slate-950 py-8 text-center text-xs font-code text-slate-500">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div>© <span id="year-copy">2026</span> Sama Elsheikh. All Rights Reserved.</div>
+            <div class="flex items-center gap-4 text-slate-400 text-base">
+                <a href="https://github.com/samaelsheikh23" target="_blank" rel="noopener noreferrer" class="hover:text-ai-cyan"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/sama-elsheikh-02b75233a" target="_blank" rel="noopener noreferrer" class="hover:text-ai-cyan"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="mailto:samaelsheikh2006@gmail.com" class="hover:text-ai-cyan"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS (Animate On Scroll) JS CDN -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+    <script>
+        // Set dynamic copyright year
+        document.getElementById('year-copy').innerText = new Date().getFullYear();
+
+        // Scroll Progress Bar & Back To Top Button Handler
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            
+            const progressBar = document.getElementById('scroll-progress');
+            if (progressBar) progressBar.style.width = scrolled + '%';
+
+            const backToTopBtn = document.getElementById('backToTop');
+            if (backToTopBtn) {
+                if (winScroll > 400) {
+                    backToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+                    backToTopBtn.classList.add('opacity-100', 'pointer-events-auto');
+                } else {
+                    backToTopBtn.classList.add('opacity-0', 'pointer-events-none');
+                    backToTopBtn.classList.remove('opacity-100', 'pointer-events-auto');
+                }
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Lightbox Certificate Modal Handler
+        function openCertificate(imgSrc) {
+            const modal = document.getElementById('certificateModal');
+            const fullImg = document.getElementById('fullCertificate');
+            fullImg.src = imgSrc;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeCertificate() {
+            const modal = document.getElementById('certificateModal');
+            const fullImg = document.getElementById('fullCertificate');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            fullImg.src = '';
+            document.body.style.overflow = '';
+        }
+
+        document.getElementById('certificateModal').addEventListener('click', (e) => {
+            if (e.target.id === 'certificateModal') {
+                closeCertificate();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeCertificate();
+            }
+        });
+
+        // Synapse Canvas Neural Network Particle Background
+        function initSynapseCanvas() {
+            const canvas = document.getElementById('synapseCanvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            
+            function resize() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            resize();
+            window.addEventListener('resize', resize);
+
+            const particles = [];
+            const count = 70;
+
+            for (let i = 0; i < count; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    vx: (Math.random() - 0.5) * 0.6,
+                    vy: (Math.random() - 0.5) * 0.6,
+                    radius: Math.random() * 2 + 1
+                });
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                for (let i = 0; i < count; i++) {
+                    let p = particles[i];
+                    p.x += p.vx;
+                    p.y += p.vy;
+
+                    if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+                    if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = '#06b6d4';
+                    ctx.fill();
+
+                    for (let j = i + 1; j < count; j++) {
+                        let p2 = particles[j];
+                        let dist = Math.hypot(p.x - p2.x, p.y - p2.y);
+                        if (dist < 140) {
+                            ctx.beginPath();
+                            ctx.moveTo(p.x, p.y);
+                            ctx.lineTo(p2.x, p2.y);
+                            ctx.strokeStyle = `rgba(139, 92, 246, ${1 - dist / 140})`;
+                            ctx.lineWidth = 0.5;
+                            ctx.stroke();
+                        }
+                    }
+                }
+                requestAnimationFrame(animate);
+            }
+            animate();
+        }
+
+        // Interactive CLI Terminal Logic
+        function handleTerminalCommand(e) {
+            if (e.key === 'Enter') {
+                const input = document.getElementById('terminal-input');
+                const cmd = input.value.trim().toLowerCase();
+                const term = document.getElementById('terminal-body');
+
+                const cmdLine = document.createElement('p');
+                cmdLine.innerHTML = `<span class="text-ai-emerald">visitor@sama-ml:~$</span> ${input.value}`;
+                term.appendChild(cmdLine);
+
+                const response = document.createElement('p');
+                response.className = 'text-slate-400 mb-2';
+
+                switch(cmd) {
+                    case 'help':
+                        response.innerHTML = 'Available commands: <span class="text-ai-cyan">skills, projects, education, certs, contact, clear</span>';
+                        break;
+                    case 'skills':
+                        response.innerHTML = 'Languages: Python, C++, Java, Dart, SQL.<br>Data Science & ML: Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn, Streamlit.';
+                        break;
+                    case 'projects':
+                        response.innerHTML = '1. Stroke Prediction System (Streamlit)<br>2. Battery Health Prediction (Streamlit)<br>3. Hospital Management System (JavaFX)<br>4. Sudoku AI Game (Python Backtracking)';
+                        break;
+                    case 'education':
+                        response.innerHTML = 'B.Sc. Computer Science @ Damanhour University (Expected 2028). Trainings: ITI (Data Science & ML, Flutter), NTI (ML Analysis).';
+                        break;
+                    case 'certs':
+                        response.innerHTML = 'Coursera Supervised ML, CS50 Python, DataCamp, HackerRank Java, Mahara-Tech, DPC, TOT.';
+                        break;
+                    case 'contact':
+                        response.innerHTML = 'Email: <span class="text-ai-cyan">samaelsheikh2006@gmail.com</span> | WhatsApp: <span class="text-ai-emerald">+20 121 210 0574</span>';
+                        break;
+                    case 'clear':
+                        term.innerHTML = '';
+                        input.value = '';
+                        return;
+                    default:
+                        response.innerHTML = `<span class="text-red-400">Command not recognized: '${cmd}'. Type 'help' for available commands.</span>`;
+                }
+
+                term.appendChild(response);
+                term.scrollTop = term.scrollHeight;
+                input.value = '';
+            }
+        }
+
+        // Auto-Playing Certificates Carousel Controller
+        let certCurrentIndex = 0;
+        let certAutoPlayTimer = null;
+
+        function getCertVisibleCount() {
+            if (window.innerWidth >= 1024) return 3;
+            if (window.innerWidth >= 768) return 2;
+            return 1;
+        }
+
+        function getCertTotalSlides() {
+            const track = document.getElementById('certCarouselTrack');
+            return track ? track.children.length : 0;
+        }
+
+        function getCertMaxIndex() {
+            const total = getCertTotalSlides();
+            const visible = getCertVisibleCount();
+            return Math.max(0, total - visible);
+        }
+
+        function updateCertSlide() {
+            const track = document.getElementById('certCarouselTrack');
+            if (!track) return;
+            const maxIdx = getCertMaxIndex();
+            if (certCurrentIndex > maxIdx) certCurrentIndex = 0;
+            if (certCurrentIndex < 0) certCurrentIndex = maxIdx;
+
+            const visible = getCertVisibleCount();
+            const shiftPercent = certCurrentIndex * (100 / visible);
+            track.style.transform = `translateX(-${shiftPercent}%)`;
+
+            updateCertDots();
+        }
+
+        function nextCertSlide() {
+            const maxIdx = getCertMaxIndex();
+            if (certCurrentIndex >= maxIdx) {
+                certCurrentIndex = 0;
+            } else {
+                certCurrentIndex++;
+            }
+            updateCertSlide();
+        }
+
+        function prevCertSlide() {
+            const maxIdx = getCertMaxIndex();
+            if (certCurrentIndex <= 0) {
+                certCurrentIndex = maxIdx;
+            } else {
+                certCurrentIndex--;
+            }
+            updateCertSlide();
+        }
+
+        function goToCertSlide(idx) {
+            certCurrentIndex = idx;
+            updateCertSlide();
+        }
+
+        function createCertDots() {
+            const dotsContainer = document.getElementById('certCarouselDots');
+            if (!dotsContainer) return;
+            dotsContainer.innerHTML = '';
+            const maxIdx = getCertMaxIndex();
+            for (let i = 0; i <= maxIdx; i++) {
+                const dot = document.createElement('button');
+                dot.className = `h-2 rounded-full transition-all duration-300 ${i === certCurrentIndex ? 'bg-ai-cyan w-8' : 'bg-slate-800 w-2 hover:bg-slate-600'}`;
+                dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+                dot.onclick = () => goToCertSlide(i);
+                dotsContainer.appendChild(dot);
+            }
+        }
+
+        function updateCertDots() {
+            const dotsContainer = document.getElementById('certCarouselDots');
+            if (!dotsContainer) return;
+            const dots = dotsContainer.children;
+            for (let i = 0; i < dots.length; i++) {
+                if (i === certCurrentIndex) {
+                    dots[i].className = 'h-2 w-8 rounded-full bg-ai-cyan transition-all duration-300 shadow-sm shadow-ai-cyan/50';
+                } else {
+                    dots[i].className = 'h-2 w-2 rounded-full bg-slate-800 hover:bg-slate-600 transition-all duration-300';
+                }
+            }
+        }
+
+        function startCertAutoPlay() {
+            stopCertAutoPlay();
+            certAutoPlayTimer = setInterval(() => {
+                nextCertSlide();
+            }, 1800);
+        }
+
+        function pauseCertAutoPlay() {
+            stopCertAutoPlay();
+        }
+
+        function stopCertAutoPlay() {
+            if (certAutoPlayTimer) {
+                clearInterval(certAutoPlayTimer);
+                certAutoPlayTimer = null;
+            }
+        }
+
+        function initCertCarousel() {
+            const wrapper = document.getElementById('certCarouselWrapper');
+            createCertDots();
+            updateCertSlide();
+            startCertAutoPlay();
+
+            if (wrapper) {
+                let startX = 0;
+                wrapper.addEventListener('touchstart', (e) => {
+                    startX = e.changedTouches[0].screenX;
+                    pauseCertAutoPlay();
+                }, { passive: true });
+
+                wrapper.addEventListener('touchend', (e) => {
+                    const endX = e.changedTouches[0].screenX;
+                    if (startX - endX > 40) {
+                        nextCertSlide();
+                    } else if (endX - startX > 40) {
+                        prevCertSlide();
+                    }
+                    startCertAutoPlay();
+                }, { passive: true });
+            }
+
+            window.addEventListener('resize', () => {
+                createCertDots();
+                updateCertSlide();
+            });
+        }
+
+        // Window Load Initializer
+        window.onload = function() {
+            // Safe Initialization for AOS Scroll Animations
+            if (typeof AOS !== 'undefined') {
+                AOS.init({
+                    duration: 800,
+                    once: true,
+                    offset: 80,
+                    easing: 'ease-out-cubic'
+                });
+            }
+
+            initSynapseCanvas();
+            initCertCarousel();
+        };
+    </script>
+</body>
+</html>
